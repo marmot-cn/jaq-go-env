@@ -26,9 +26,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 下载并编译 OpenCV，并确保包含 Aruco 模块，禁用 AVX512 优化
-RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/4.5.5.zip \
+RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/4.10.0.zip \
     && unzip opencv.zip \
-    && cd opencv-4.5.5 \
+    && cd opencv-4.10.0 \
     && mkdir build \
     && cd build \
     && cmake -D CMAKE_BUILD_TYPE=Release \
