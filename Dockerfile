@@ -32,4 +32,11 @@ RUN git clone --depth=1 https://github.com/davisking/dlib.git /dlib \
     && cmake --build . --config Release \
     && make install \
     && ldconfig \
+    && rm -rf /dlib  # 清理构建文件
+
+# 删除不需要的编译工具和清理系统
+RUN apt-get remove -y build-essential cmake git wget curl \
+    && apt-get autoremove -y \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
