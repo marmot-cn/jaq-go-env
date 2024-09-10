@@ -35,8 +35,8 @@ RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/4.5.5.zip \
              -D CMAKE_INSTALL_PREFIX=/usr/local \
              -D OPENCV_ENABLE_NONFREE=ON \
              -D BUILD_opencv_aruco=ON \
-             -D CPU_BASELINE_DISABLE=AVX512 .. \  # 禁用 AVX512
-    && make -j2 \  # 降低并行编译任务数
+             -D CPU_BASELINE_DISABLE=AVX512 .. \
+    && make -j2 \
     && make install \
     && ldconfig
 
