@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     wget \
     curl \
+    unzip \
     ca-certificates \
     libjpeg-dev \
     libpng-dev \
