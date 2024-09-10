@@ -20,8 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgtk-3-dev \
     libatlas-base-dev \
     gfortran \
-    libopencv-dev \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    libopencv-dev 
 
 # 克隆 dlib 并编译安装
 RUN git clone --depth=1 https://github.com/davisking/dlib.git /dlib \
@@ -34,9 +33,4 @@ RUN git clone --depth=1 https://github.com/davisking/dlib.git /dlib \
     && ldconfig \
     && rm -rf /dlib  # 清理构建文件
 
-# 删除不需要的编译工具和清理系统
-RUN apt-get remove -y build-essential cmake git wget curl \
-    && apt-get autoremove -y \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
