@@ -21,7 +21,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgtk-3-dev \
     libatlas-base-dev \
     gfortran \
-    python3-dev \
     pkg-config \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -36,7 +35,7 @@ RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/4.10.0.zip \
              -D OPENCV_ENABLE_NONFREE=ON \
              -D BUILD_opencv_aruco=ON \
              -D CPU_BASELINE_DISABLE=AVX512 .. \
-    && make -j2 \
+    && make -j$(nproc) \
     && make install \
     && ldconfig
 
