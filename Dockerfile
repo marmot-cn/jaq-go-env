@@ -1,4 +1,4 @@
-FROM golang:1.22.4
+FROM golang:1.24.1
 
 # 使用清华大学镜像源
 RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free" > /etc/apt/sources.list && \
